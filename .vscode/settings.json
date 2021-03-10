@@ -1,0 +1,8 @@
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "editor.tabSize": 2,
+  "editor.fontSize": 14,
+  "editor.wordWrap": "on"
+}

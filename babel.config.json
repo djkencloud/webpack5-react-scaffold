@@ -1,0 +1,26 @@
+{
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/transform-async-to-generator",
+    "@babel/plugin-transform-runtime"
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "debug": false,
+        "corejs": "3.6.5",
+        "useBuiltIns": "entry",
+        "targets": {
+          "browsers": [
+            ">0.25%",
+            "not ie 10",
+            "ie 11",
+            "not op_mini all"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ]
+}

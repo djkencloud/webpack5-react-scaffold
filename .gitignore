@@ -1,0 +1,23 @@
+# If using scraper
+data.sqlite
+data.sqlite-journal
+
+# Project generated files #
+.idea
+node_modules
+dist
+dist-cdn
+.tmp
+.env
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Other folders #
+resources

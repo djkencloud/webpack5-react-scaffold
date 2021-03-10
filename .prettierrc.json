@@ -1,0 +1,9 @@
+{
+  "prettier.cssEnable": [""],
+  "singleQuote": true,
+  "trailingComma": "all",  
+  "editor.formatOnSave": false,
+  "[javascript]": {
+      "editor.formatOnSave": true
+  }
+}
