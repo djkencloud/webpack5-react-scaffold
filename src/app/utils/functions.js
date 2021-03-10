@@ -115,7 +115,7 @@ export function createRandomNumbers(num) {
     arr.push(randomIntFromInterval(1, 99));
   }
   arr.push(0, 100);
-  arr.sort(function (a, b) {
+  arr.sort(function (a, b) { // eslint-disable-line
     return a - b;
   });
   for (let i = 0; i < num; i += 1) {
