@@ -34,7 +34,6 @@ store.dispatch(fetchData());
 /*
 
 Alt set up using routes
-
 const history = createHashHistory();
 
 const element = (
