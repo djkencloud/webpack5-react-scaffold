@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import GlobalStyles from './global-style';
 import store from './state';
 import { fetchData } from './state/actions/createData';
-import { listenResize } from './state/actions/createResize';
+import { domListeners } from './state/actions/createBrowserUtils';
 
 import Header from './views/header';
 import Footer from './views/footer';
@@ -28,7 +28,7 @@ const element = (
 ReactDOM.render(element, document.getElementById('foot'));
 
 /* Start up functions */
-store.dispatch(listenResize());
+store.dispatch(domListeners());
 store.dispatch(fetchData());
 
 /*
