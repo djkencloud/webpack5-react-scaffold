@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-// import { createHashHistory }  from 'history';
 // import { Route } from 'react-router';
 // import { ConnectedRouter } from 'connected-react-router';
+// import { history } from './state/history';
 
 import GlobalStyles from './global-style';
-import store from './state';
+import configureStore from './state';
 import { fetchData } from './state/actions/createData';
 import { domListeners } from './state/actions/createBrowserUtils';
 
 import Header from './views/header';
 import Footer from './views/footer';
 import Content from './views/content';
+
+const store = configureStore();
 
 const element = (
   <Provider store={store}>
@@ -35,7 +37,7 @@ store.dispatch(fetchData());
 
 Alt set up using routes
 
-const history = createHashHistory();
+
 
 const element = (
   <Provider store={ store }>
