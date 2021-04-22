@@ -68,7 +68,6 @@ module.exports = {
       patterns: [
         { from: './src/static/data', to: 'data' },
         { from: './src/static/js', to: 'js' },
-        { from: './src/static/fonts', to: 'fonts' },
       ],
     }),
     new HtmlWebPackPlugin({
