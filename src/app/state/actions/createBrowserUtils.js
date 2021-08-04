@@ -44,31 +44,37 @@ export function domListeners() {
     );
 
     // listen for dark mode switch
-    colorSchemeQuery.addEventListener('change', (e) => {
-      dispatch(onDarkMode(e.matches));
-    });
+    if (colorSchemeQuery) {
+      colorSchemeQuery.addEventListener('change', (e) => {
+        dispatch(onDarkMode(e.matches));
+      });
+    }
 
-    portraitView.addEventListener('change', (e) => {
-      if (e.matches) {
-        dispatch(onOrientationChange('portrait'));
-      }
-    });
+    if (portraitView) {
+      portraitView.addEventListener('change', (e) => {
+        if (e.matches) {
+          dispatch(onOrientationChange('portrait'));
+        }
+      });
+    }
 
-    landscapeView.addEventListener('change', (e) => {
-      if (e.matches) {
-        dispatch(onOrientationChange('landscape'));
-      }
-    });
+    if (landscapeView) {
+      landscapeView.addEventListener('change', (e) => {
+        if (e.matches) {
+          dispatch(onOrientationChange('landscape'));
+        }
+      });
+    }
 
     // dispatch initial dimensions
     dispatch(onResize(window.innerWidth, window.innerHeight));
 
     // dispatch inital portrait or landscape views if on mobile
-    if (portraitView.matches) {
+    if (portraitView && portraitView.matches) {
       dispatch(onOrientationChange('portrait'));
     }
 
-    if (landscapeView.matches) {
+    if (landscapeView && landscapeView.matches) {
       dispatch(onOrientationChange('landscape'));
     }
   };
