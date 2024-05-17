@@ -1,10 +1,13 @@
-import React from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+
+import img from "../../../static/images/test.png";
+import img2 from "../../../static/images/insect-dance.jpg";
 
 export default function Content() {
-  // const data = useSelector((state) => state.data.data);
-  // const stageWidth = useSelector((state) => state.resize.width);
-  // const stageHeight = useSelector((state) => state.resize.height);
-
-  return <div>Test</div>;
+  return (
+    <section>
+      <img src={img} alt="test" width="2526" height="2176" />
+      <img src={img2} alt="test" width="1917" height="1278" />
+    </section>
+  );
 }

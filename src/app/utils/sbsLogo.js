@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 export default function SBSLogo() {
   const style = {
-    fill: '#e9b9b9',
+    fill: "#e9b9b9",
   };
 
   return (

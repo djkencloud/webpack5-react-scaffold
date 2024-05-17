@@ -1,6 +1,6 @@
 {
   "prettier.cssEnable": [""],
-  "singleQuote": true,
+  "singleQuote": false,
   "trailingComma": "all",  
   "editor.formatOnSave": false,
   "[javascript]": {

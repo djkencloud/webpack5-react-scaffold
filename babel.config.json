@@ -1,8 +1,10 @@
 {
   "plugins": [
-    "@babel/plugin-proposal-object-rest-spread",
+    "babel-plugin-styled-components",
+    "@babel/plugin-transform-object-rest-spread",
     "@babel/transform-async-to-generator",
-    "@babel/plugin-transform-runtime"
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-transform-class-properties"
   ],
   "presets": [
     [

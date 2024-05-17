@@ -1,11 +1,10 @@
-import { createGlobalStyle } from 'styled-components';
-import reboot from 'styled-reboot';
+/* eslint-disable no-undef */
+/* eslint-disable import/no-extraneous-dependencies */
+import * as styled from "styled-components";
+import { normalize } from "styled-normalize";
 
-const rebootCss = reboot();
-
-export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Slab:700|Roboto:400,500');
-  ${rebootCss}
+export default styled.createGlobalStyle`
+  ${normalize}
 
   html {
     -ms-text-size-adjust: 100%;
@@ -18,9 +17,18 @@ export default createGlobalStyle`
     left: 0;
     -webkit-overflow-scrolling: touch;
     line-height: 1.5em;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-size: 16px;
   }
 
+  /* test */
+  h1 {
+    color: #990000;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 `;
