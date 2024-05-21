@@ -1,18 +1,18 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable default-param-last */
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const init = {
   width: window.innerWidth,
   height: window.innerHeight,
-  darkMode: window.matchMedia("(prefers-color-scheme: dark)").matches,
-  portrait: window.matchMedia("(orientation: portrait)").matches,
-  landscape: window.matchMedia("(orientation: landscape)").matches,
+  darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
+  portrait: window.matchMedia('(orientation: portrait)').matches,
+  landscape: window.matchMedia('(orientation: landscape)').matches,
 };
 
 // Slice
 const browserUtils = createSlice({
-  name: "browserUtils",
+  name: 'browserUtils',
   initialState: init,
   reducers: {
     onResize: (state) => {
@@ -21,12 +21,12 @@ const browserUtils = createSlice({
     },
     onDarkMode: (state) => {
       state.darkMode = window.matchMedia(
-        "(prefers-color-scheme: dark)",
+        '(prefers-color-scheme: dark)',
       ).matches;
     },
     onOrientationChange: (state) => {
-      state.portrait = window.matchMedia("(orientation: portrait)").matches;
-      state.landscape = window.matchMedia("(orientation: landscape)").matches;
+      state.portrait = window.matchMedia('(orientation: portrait)').matches;
+      state.landscape = window.matchMedia('(orientation: landscape)').matches;
     },
   },
 });

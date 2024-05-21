@@ -1,5 +1,5 @@
-import React from "react";
-import d3 from "../utils/d3Importer";
+import React from 'react';
+import d3 from '../utils/d3Importer';
 
 export const useD3 = (renderChartFn, dependencies) => {
   const ref = React.useRef();

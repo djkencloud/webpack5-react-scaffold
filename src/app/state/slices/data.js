@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-param-reassign */
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { get } from "../../utils/ajax";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { get } from '../../utils/ajax';
 
 function getData(height) {
   return new Promise((resolve) => {
@@ -12,14 +12,14 @@ function getData(height) {
 }
 
 // Create Thunk
-export const fetchData = createAsyncThunk("fetchData", async (thunkAPI) => {
+export const fetchData = createAsyncThunk('fetchData', async (thunkAPI) => {
   const d = await getData();
   return d;
 });
 
 // Slice
 const data = createSlice({
-  name: "data",
+  name: 'data',
   initialState: {
     data: [],
     loading: false,

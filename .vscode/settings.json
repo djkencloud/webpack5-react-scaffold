@@ -4,5 +4,9 @@
   "scss.validate": false,
   "editor.tabSize": 2,
   "editor.fontSize": 14,
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

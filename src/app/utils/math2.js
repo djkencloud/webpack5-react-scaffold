@@ -1,26 +1,26 @@
 /* eslint-disable */
 export const easing = {
   quad: {
-    in: v => v * v,
-    out: v => -1 * v * (v - 2),
-    inOut: v => {
+    in: (v) => v * v,
+    out: (v) => -1 * v * (v - 2),
+    inOut: (v) => {
       v /= 0.5;
       if (v < 1) return 0.5 * v * v;
       v--;
       return -0.5 * (v * (v - 2) - 1);
-    }
+    },
   },
   cubic: {
-    inOut: v => {
+    inOut: (v) => {
       v /= 0.5;
       if (v < 1) return 0.5 * v * v * v;
       v -= 2;
       return 0.5 * (v * v * v + 2);
-    }
+    },
   },
   sine: {
-    inOut: v => -0.5 * (Math.cos(Math.PI * v) - 1)
-  }
+    inOut: (v) => -0.5 * (Math.cos(Math.PI * v) - 1),
+  },
 };
 
 export function clamp(v, min = null, max = null) {
@@ -36,7 +36,7 @@ export function clamp(v, min = null, max = null) {
 
 export function interpolate(v, min, max, f = null) {
   if (f === null) {
-    f = x => x;
+    f = (x) => x;
   }
   v = f(v);
   let delta = max - min;

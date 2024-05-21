@@ -12,7 +12,7 @@ export function getHeight() {
 
 export function isRetina() {
   const mediaQuery =
-    "(-webkit-min-device-pixel-ratio: 1.5),(min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(min-resolution: 1.5dppx)";
+    '(-webkit-min-device-pixel-ratio: 1.5),(min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(min-resolution: 1.5dppx)';
   if (window.devicePixelRatio > 1) {
     return true;
   }
@@ -24,39 +24,39 @@ export function isRetina() {
 export function formatMoney(n, p, s, t, d) {
   let number = n || 0;
   const places = !isNaN((p = Math.abs(p))) ? p : 0;
-  const symbol = s !== undefined ? s : "$";
-  const thousand = t || ",";
-  const decimal = d || ".";
-  const negative = number < 0 ? "-" : "";
+  const symbol = s !== undefined ? s : '$';
+  const thousand = t || ',';
+  const decimal = d || '.';
+  const negative = number < 0 ? '-' : '';
   const i =
-    parseInt((number = Math.abs(+number || 0).toFixed(places)), 10) + "";
+    parseInt((number = Math.abs(+number || 0).toFixed(places)), 10) + '';
   let j = (j = i.length) > 3 ? j % 3 : 0;
 
   return (
     symbol +
     negative +
-    (j ? i.substr(0, j) + thousand : "") +
-    i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousand) +
+    (j ? i.substr(0, j) + thousand : '') +
+    i.substr(j).replace(/(\d{3})(?=\d)/g, '$1' + thousand) +
     (places
       ? decimal +
         Math.abs(number - i)
           .toFixed(places)
           .slice(2)
-      : "")
+      : '')
   );
 }
 /* eslint-enable */
 
 export function getQueryStrings(qs) {
   // remove any preceding url and split
-  const querystring = qs.substring(qs.indexOf("?") + 1).split("&");
+  const querystring = qs.substring(qs.indexOf('?') + 1).split('&');
   const params = {};
   let pair;
   const d = decodeURIComponent;
 
   // march and parse
   for (let i = querystring.length - 1; i >= 0; i -= 1) {
-    pair = querystring[i].split("=");
+    pair = querystring[i].split('=');
     params[d(pair[0])] = d(pair[1]);
   }
 
@@ -67,7 +67,7 @@ export function getTimeFromSeconds(seconds) {
   let hh = 0;
   let mm = 0;
   let ss = 0;
-  let t = "";
+  let t = '';
 
   if (seconds > 0) {
     // Multiply by 1000 because Date() requires miliseconds
@@ -81,18 +81,18 @@ export function getTimeFromSeconds(seconds) {
   /* eslint-disable */
   if (hh != 0) {
     if (hh < 10) {
-      t += "0" + hh + ":";
+      t += '0' + hh + ':';
     } else {
-      t += hh + ":";
+      t += hh + ':';
     }
   }
   if (mm < 10) {
-    t += "0" + mm + ":";
+    t += '0' + mm + ':';
   } else {
-    t += mm + ":";
+    t += mm + ':';
   }
   if (ss < 10) {
-    t += "0" + ss;
+    t += '0' + ss;
   } else {
     t += ss;
   }
@@ -160,23 +160,23 @@ export function isIE() {
   // Edge (IE 12+)
   // ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
 
-  const msie = ua.indexOf("MSIE ");
+  const msie = ua.indexOf('MSIE ');
   if (msie > 0) {
     // IE 10 or older => return version number
-    return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
   }
 
-  const trident = ua.indexOf("Trident/");
+  const trident = ua.indexOf('Trident/');
   if (trident > 0) {
     // IE 11 => return version number
-    const rv = ua.indexOf("rv:");
-    return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
+    const rv = ua.indexOf('rv:');
+    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
   }
 
-  const edge = ua.indexOf("Edge/");
+  const edge = ua.indexOf('Edge/');
   if (edge > 0) {
     // Edge (IE 12+) => return version number
-    return parseInt(ua.substring(edge + 5, ua.indexOf(".", edge)), 10);
+    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
   }
 
   // other browser
@@ -186,9 +186,9 @@ export function isIE() {
 // does browser use intersectoin observer - probably cna't rely on this yet
 export function isIntersectionObserver() {
   return (
-    "IntersectionObserver" in window &&
-    "IntersectionObserverEntry" in window &&
-    "intersectionRatio" in window.IntersectionObserverEntry.prototype
+    'IntersectionObserver' in window &&
+    'IntersectionObserverEntry' in window &&
+    'intersectionRatio' in window.IntersectionObserverEntry.prototype
   );
 }
 
@@ -245,7 +245,7 @@ export function elementIsInFocus(el) {
 // check if the current user has touch events supported
 export function touchSupported() {
   return (
-    "ontouchstart" in window ||
+    'ontouchstart' in window ||
     (window.DocumentTouch && document instanceof window.DocumentTouch)
   );
 }

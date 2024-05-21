@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import img from "../../../static/images/test.png";
-import img2 from "../../../static/images/insect-dance.jpg";
+import img from '../../../static/images/test.png';
+import img2 from '../../../static/images/insect-dance.jpg';
 
 export default function Content() {
   return (

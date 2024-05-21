@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable import/no-extraneous-dependencies */
-import * as styled from "styled-components";
-import { normalize } from "styled-normalize";
+import * as styled from 'styled-components';
+import { normalize } from 'styled-normalize';
 
 export default styled.createGlobalStyle`
   ${normalize}
@@ -17,7 +17,7 @@ export default styled.createGlobalStyle`
     left: 0;
     -webkit-overflow-scrolling: touch;
     line-height: 1.5em;
-    font-family: "Raleway", sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 16px;
   }

@@ -13,9 +13,9 @@ module.exports = {
   plugins: ["prettier", "styled-components-a11y"],
   extends: [
     "airbnb",
-    "prettier",
     "plugin:prettier/recommended",
     "plugin:styled-components-a11y/recommended",
+    "prettier", // always make sure prettier is last
   ],
   rules: {
     "import/prefer-default-export": "off",
