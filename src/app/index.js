@@ -40,9 +40,10 @@ window.addEventListener('resize', () => {
   store.dispatch(onOrientationChange());
 });
 
-window.addEventListener('orientationchange', () =>
-  store.dispatch(onOrientationChange()),
-);
+window.addEventListener('orientationchange', () => {
+  store.dispatch(onResize());
+  store.dispatch(onOrientationChange());
+});
 
 /* Initial data fetch */
 store.dispatch(fetchData());
