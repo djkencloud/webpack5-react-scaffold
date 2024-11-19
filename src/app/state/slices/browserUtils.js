@@ -10,6 +10,8 @@ const init = {
   landscape: window.matchMedia('(orientation: landscape)').matches,
   prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)')
     .matches,
+  prefersDarkColourScheme: window.matchMedia('(prefers-color-scheme: dark)')
+    .matches,
 };
 
 // Slice
