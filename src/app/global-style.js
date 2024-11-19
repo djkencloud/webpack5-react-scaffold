@@ -31,4 +31,11 @@ export default styled.createGlobalStyle`
     width: 100%;
     height: auto;
   }
+
+  /* Reduce motion flag */
+  @media (prefers-reduced-motion: reduce) {
+    button {
+      animation: none;
+    }
+  }
 `;

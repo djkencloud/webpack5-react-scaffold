@@ -8,6 +8,8 @@ const init = {
   darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
   portrait: window.matchMedia('(orientation: portrait)').matches,
   landscape: window.matchMedia('(orientation: landscape)').matches,
+  prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)')
+    .matches,
 };
 
 // Slice
