@@ -1,2 +1,5 @@
 src/app/vendor/*
+src/static/creative-template-wrapper/assets/*
+src/static/js/iframeResizer.contentWindow.js
+src/static/js/iframeResizer.contentWindow.min.js
 dist/*

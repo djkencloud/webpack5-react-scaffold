@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+        <!-- Resizer code -->
+    <script src="assets/iframeResizer.js"></script>
+</head>
+<body>
+  <body>
+    <!--
+    <div style="width: 100%; height: 400px; background-color: #ff0000; position: relative;"></div> -->
+    <!-- The iframe loads the child page - https://dilaauov2wkoz.cloudfront.net/long-scroller-test/index.html -->
+    <iframe
+      title="Createive Iframe Template"
+      id="creative-iframe"
+      src="http://localhost:8080"
+      scrolling="no"
+      frameborder="0"
+      width="100%"
+      height="100%"
+      allow="clipboard-write"
+    ></iframe>
+    <!--
+    <div style="width: 100%; height: 400px; background-color: #00ff00; position: relative;"></div> -->
+    <script>
+      function initIframe() {
+        const ifR = iFrameResize({
+          log: false, // Enable logging (optional)
+          heightCalculationMethod: 'bodyScroll', 
+          checkOrigin: false, // Set to true for security (use specific origins)
+          messageCallback: function(messageData) {
+            console.log('Received message from creative iframe:', messageData);
+          }
+        }, '#creative-iframe');
+  
+        var iframe = document.getElementById('creative-iframe');
+        function sendMessage() {
+          var bounds = iframe.getBoundingClientRect();
+          iframe.iFrameResizer.sendMessage(
+            {
+              id: 'iframeUpdate',
+              iframeHeight: bounds.height,
+              iframetop: bounds.top,
+              iframeY: bounds.y,
+              scrollY: window.scrollY,
+              windowInnerHeight: window.innerHeight,
+            }
+          );
+        }
+
+        window.addEventListener('scroll', sendMessage);
+        window.addEventListener('resize', sendMessage);
+        setInterval(sendMessage, 10000);
+      }
+
+      // just make sure we have the iFrameResize library loaded before we call initIframe
+      const checkResizerStatus = setInterval(() => {
+        if (typeof iFrameResize !== "undefined") {
+          console.log('iFrameResize library loaded');
+          clearInterval(checkResizerStatus);
+          initIframe();
+        }
+      }, 200);
+  </script>
+  </body>
+</html>
