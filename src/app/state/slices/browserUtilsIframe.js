@@ -25,7 +25,6 @@ function calculateIframeScrollPercentage(props) {
 const init = {
   width: window.innerWidth,
   height: window.innerHeight,
-  scrollYPosition: window.scrollY,
   pageHeight: 0,
   darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
   portrait: window.matchMedia('(orientation: portrait)').matches,
@@ -65,9 +64,6 @@ const browserUtils = createSlice({
     onOrientationChange: (state) => {
       state.portrait = window.matchMedia('(orientation: portrait)').matches;
       state.landscape = window.matchMedia('(orientation: landscape)').matches;
-    },
-    onScroll: (state) => {
-      state.scrollYPosition = window.scrollY;
     },
     setIntersection: (state, action) => {
       state.intersection = action.payload;
