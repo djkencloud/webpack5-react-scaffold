@@ -26,7 +26,6 @@ export default function PageWrap() {
   const pageWrapRef = useRef();
   const {
     onResize,
-    onScroll,
     onDarkMode,
     onOrientationChange,
     setIntersection,
@@ -38,10 +37,6 @@ export default function PageWrap() {
   useEffect(() => {
     const handleResize = () => {
       dispatch(onResize());
-    };
-
-    const handleScroll = () => {
-      dispatch(onScroll());
     };
 
     const handleOrientationChange = () => {
@@ -78,7 +73,6 @@ export default function PageWrap() {
     }
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll);
     window.addEventListener('orientationchange', handleOrientationChange);
     window.addEventListener('message', handleIframeUpdate);
 
