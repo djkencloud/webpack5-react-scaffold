@@ -21,10 +21,6 @@ export default function PageWrap() {
       dispatch(onResize());
     };
 
-    const handleScroll = () => {
-      dispatch(onScroll());
-    };
-
     const handleOrientationChange = () => {
       dispatch(onOrientationChange());
     };
@@ -34,7 +30,6 @@ export default function PageWrap() {
     };
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll);
     window.addEventListener('orientationchange', handleOrientationChange);
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
