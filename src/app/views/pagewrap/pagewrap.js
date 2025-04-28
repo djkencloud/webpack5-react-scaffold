@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { PageWrapStyles } from './pagewrapstyles';
-import slices from '../../state/slices/browserUtilsIframe';
+import slices from '../../state/slices/browserUtils';
 
 import Header from '../header';
 import Content from '../content';
