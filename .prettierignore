@@ -1,2 +1,3 @@
 src/app/vendor/*
 dist/*
+src/static/creative-template-wrapper-iframe/assets/*

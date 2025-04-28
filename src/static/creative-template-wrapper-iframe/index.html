@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!-- Resizer code -->
+    <script src="assets/iframeResizer.js"></script>
+</head>
+<body>
+  <body>
+    <iframe
+      title="Createive Iframe Template"
+      id="creative-iframe-make-unique"
+      src="https://localhost:8080" 
+      scrolling="no"
+      frameborder="0"
+      width="100%"
+      height="100%"
+      allow="clipboard-write"
+    ></iframe>
+    <script>
+      (function () {
+        // The CSS selector for your iframe
+        const iframeSelector = '#creative-iframe-make-unique';
+
+        /**
+         * Initialize the iframe resizing if needed.
+         * This function checks if the iframe exists and if it hasn't already been resized.
+         */
+        function initIframe() {
+          const iframe = document.querySelector(iframeSelector);
+          if (!iframe) return; // Exit if iframe not yet in the DOM
+
+          // Only initialize iFrameResizer if not already attached
+          if (!iframe.iFrameResizer) {
+            iFrameResize({
+              log: false, // Set true for debug logging
+              heightCalculationMethod: 'bodyScroll', // Or another method depending on your content
+              checkOrigin: false, // Set depending on your security needs
+              messageCallback: function (messageData) {
+                console.log('Received message from creative iframe:', messageData);
+              }
+            }, iframe);
+            console.log('Iframe initialized');
+          }
+        }
+
+        /**
+         * Attempt to immediately initialize the iframe in case it is already present.
+         */
+        initIframe();
+
+        /**
+         * Set up an interval fallback:
+         * Try initializing repeatedly every 200ms for up to 10 seconds (50 tries),
+         * in case the iframe appears with a slight delay after page load.
+         */
+        let count = 0;
+        const interval = setInterval(() => {
+          initIframe();
+          count += 1;
+          if (count > 50) {
+            clearInterval(interval);
+            console.log('Interval stopped');
+          }
+        }, 200);
+
+        /**
+         * Set up a MutationObserver:
+         * Watches for *only added nodes* to the document body and its subtree.
+         * 
+         * If new nodes are added, it checks if any of them *is* the iframe or *contains* the iframe.
+         * If found, calls `initIframe()` again to initialize properly.
+         */
+        const observer = new MutationObserver((mutationsList) => {
+          for (const mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+              mutation.addedNodes.forEach((node) => {
+                if (node.nodeType === 1) { // 1 = Node.ELEMENT_NODE
+                  // If the added node itself matches the iframe selector
+                  // or if it contains a matching iframe inside it
+                  if (node.matches(iframeSelector) || node.querySelector(iframeSelector)) {
+                    initIframe();
+                  }
+                }
+              });
+            }
+          }
+        });
+
+        // Start observing the entire body for added nodes
+        observer.observe(document.body, {
+          childList: true, // Watch for direct child additions or removals
+          subtree: true,   // Also watch deeply inside descendants
+        });
+      })();
+
+  </script>
+  </body>
+</html>
