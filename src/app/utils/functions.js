@@ -261,3 +261,37 @@ export function convertFeetInchesToCentimeters(feet, inches) {
   const inchesToCm = inches * 2.54;
   return Math.round(feetToCm + inchesToCm);
 }
+
+export function isInWebView() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+  // iOS WebView (old and new versions)
+  const isIOSWebView =
+    /iPhone|iPod|iPad/.test(userAgent) &&
+    !/Safari/.test(userAgent) &&
+    /AppleWebKit/.test(userAgent);
+
+  // Android WebView (has 'wv' or 'Version' in UA)
+  const isAndroidWebView =
+    (/Android/.test(userAgent) && /wv/.test(userAgent)) ||
+    /Version\/[\d.]+/.test(userAgent);
+
+  // Generic WebView check: absence of 'Safari' and presence of 'WebKit'
+  const isGenericWebView =
+    /WebView/.test(userAgent) ||
+    (!/Safari/.test(userAgent) && /AppleWebKit/.test(userAgent));
+
+  return isIOSWebView || isAndroidWebView || isGenericWebView;
+}
+
+export function isInIOSWebView() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+  // iOS WebView (old and new versions)
+  const isIOSWebView =
+    /iPhone|iPod|iPad/.test(userAgent) &&
+    !/Safari/.test(userAgent) &&
+    /AppleWebKit/.test(userAgent);
+
+  return isIOSWebView;
+}
