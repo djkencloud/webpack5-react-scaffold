@@ -1,5 +1,6 @@
-export function getScroll() {
-  return window.scrollY;
+// Helper for random values
+export function randBetween(min, max) {
+  return min + Math.random() * (max - min);
 }
 
 export function getWidth() {
