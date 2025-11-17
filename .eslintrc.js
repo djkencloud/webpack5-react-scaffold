@@ -36,6 +36,7 @@ module.exports = {
         devDependencies: true,
         optionalDependencies: false,
         peerDependencies: false,
+        packageDir: ['./', './packages/*'],
       },
     ],
     'prefer-destructuring': ['error', { object: false, array: false }],

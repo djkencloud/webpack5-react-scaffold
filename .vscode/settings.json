@@ -8,5 +8,8 @@
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "javascript.suggest.paths": true,
+  "javascript.preferences.importModuleSpecifier": "non-relative"
 }
