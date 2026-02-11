@@ -1,16 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
 
 import browserUtils from './slices/browserUtils';
 import data from './slices/data';
 
-const reducer = combineReducers({
-  browserUtils: browserUtils.reducer,
-  data: data.reducer,
+const store = configureStore({
+  reducer: {
+    browserUtils: browserUtils.reducer,
+    data: data.reducer,
+  },
 });
 
-const store = configureStore({
-  reducer,
-});
+console.log('browserUtils import:', browserUtils);
+console.log('browserUtils.reducer:', browserUtils?.reducer);
+
+console.log('data import:', data);
+console.log('data.reducer:', data?.reducer);
 
 export default store;

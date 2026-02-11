@@ -1,12 +1,11 @@
 /*
   Creative Template Wrapper No Iframe
   ---------------------------------
-  This file is a wrapper for creatives that do not use iframes.
   It ensures that the main creative code runs only once and handles
   dynamic content loading in single-page applications (SPAs).
 
   CHEKLIST:
-  - Check you are using the ID "foot" for the main div container.
+  - Check you are using the ID "foot" for the main div container - best to rename.
   - Place your main creative code where indicated.
   - Check fonts and styles that maybe cascading from the host page.
   - Make sure to remove the no-index meta tag from the HTML if present (IMPORTANT).
